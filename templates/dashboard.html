@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f0f2f5; }
+        .header { background: #2c3e50; color: white; padding: 15px 20px; }
+        .header a { color: white; text-decoration: none; margin: 0 15px; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .card { background: white; padding: 25px; margin: 20px 0; border-radius: 10px; }
+        .card img { max-width: 100%; height: auto; }
+        .nav a { display: inline-block; margin: 5px; padding: 8px 15px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; }
+        h1 { color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>⚡ Energy Dashboard</h2>
+        <a href="/">🏠 Home</a>
+        <a href="/dashboard">📊 Dashboard</a>
+        <a href="/predict">🔮 Predict</a>
+    </div>
+    <div class="container">
+        <h1>📊 PCA Analysis Dashboard</h1>
+        <p>Visualizations from Principal Component Analysis.</p>
+        
+        <div class="card">
+            <h3>📈 Scree Plot</h3>
+            <p>Explained variance of each principal component.</p>
+            <img src="/static/scree_plot.png" alt="Scree Plot">
+        </div>
+        
+        <div class="card">
+            <h3>📊 Cumulative Variance</h3>
+            <p>Components needed to capture 95% of variance.</p>
+            <img src="/static/cumulative_variance.png" alt="Cumulative Variance">
+        </div>
+        
+        <div class="card">
+            <h3>🔥 Loading Heatmap</h3>
+            <p>Feature contributions to each principal component.</p>
+            <img src="/static/loading_heatmap.png" alt="Loading Heatmap">
+        </div>
+    </div>
+</body>
+</html>

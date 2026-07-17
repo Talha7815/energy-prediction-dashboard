@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f0f2f5; }
+        .header { background: #2c3e50; color: white; padding: 15px 20px; }
+        .header a { color: white; text-decoration: none; margin: 0 15px; }
+        .container { max-width: 700px; margin: 30px auto; padding: 30px; background: white; border-radius: 10px; }
+        .form-group { margin: 15px 0; display: flex; align-items: center; }
+        .form-group label { width: 200px; font-weight: bold; }
+        .form-group input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn { width: 100%; padding: 15px; background: #3498db; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        .btn:hover { background: #2980b9; }
+        .result { margin-top: 20px; padding: 20px; background: #d4edda; border-radius: 5px; }
+        .nav a { display: inline-block; margin: 5px; padding: 8px 15px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; }
+        h1 { color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>⚡ Energy Dashboard</h2>
+        <a href="/">🏠 Home</a>
+        <a href="/dashboard">📊 Dashboard</a>
+        <a href="/predict">🔮 Predict</a>
+    </div>
+    <div class="container">
+        <h1>🔮 Predict Energy Consumption</h1>
+        
+        <form method="POST" action="/predict">
+            {% for feature in features %}
+            <div class="form-group">
+                <label for="{{ feature }}">{{ feature }}:</label>
+                <input type="text" id="{{ feature }}" name="{{ feature }}" 
+                       value="{{ form_data.get(feature, '') }}" required>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn">🚀 Predict</button>
+        </form>
+        
+        {% if prediction is not none %}
+        <div class="result">
+            <h3>✅ Predicted Energy Consumption: {{ prediction }} kWh</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
